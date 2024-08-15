@@ -20,22 +20,22 @@ module.exports = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       colors: {
-        primary: "#047AF8", // Replace with the actual hex code for Primary
-        secondary01: "#FFC105", // Replace with the actual hex code for Secondary 01
-        secondary02: "#AC43FF", // Replace with the actual hex code for Secondary 02
-        accent: "#F8F7F1", // Replace with the actual hex code for Accent Color
+        primary: "#047AF8",
+        secondary01: "#FFC105",
+        secondary02: "#AC43FF",
+        accent: "#F8F7F1",
         white: "#ffffff",
         neutral: {
-          1: "#E6E9ED", // Replace with actual hex code for Neutral 1
-          2: "#CCD3DB", // Replace with actual hex code for Neutral 2
-          3: "#B3BEC9", // Replace with actual hex code for Neutral 3
-          4: "#99A8B7", // Replace with actual hex code for Neutral 4
-          5: "#8092A4", // Replace with actual hex code for Neutral 5
-          6: "#677C92", // Replace with actual hex code for Neutral 6
-          7: "#4D6680", // Replace with actual hex code for Neutral 7
-          8: "#34516E", // Replace with actual hex code for Neutral 8
-          9: "#1A3B5C", // Replace with actual hex code for Neutral 9
-          10: "#01254A", // Replace with actual hex code for Neutral 10
+          1: "#E6E9ED",
+          2: "#CCD3DB",
+          3: "#B3BEC9",
+          4: "#99A8B7",
+          5: "#8092A4",
+          6: "#677C92",
+          7: "#4D6680",
+          8: "#34516E",
+          9: "#1A3B5C",
+          10: "#01254A",
         },
       },
       fontFamily: {
