@@ -41,6 +41,9 @@ module.exports = {
       fontFamily: {
         outfit: ["Outfit", "sans-serif"],
       },
+      lineHeight: {
+        140: "1.4",
+      },
     },
   },
   plugins: [],
