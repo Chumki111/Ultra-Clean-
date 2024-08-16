@@ -1,23 +1,17 @@
 "use client";
-import Link from "next/link";
 import React from "react";
-import { usePathname } from "next/navigation";
-const NavLink = ({ links }) => {
-  const pathName = usePathname();
+import Link from "next/link";
+
+const NavLink = ({ path, title, isActive }) => {
   return (
-    <>
-      {links?.map((item) => (
-        <Link
-          className={`text-[20px] font-medium leading-140 ${
-            pathName === item.path ? "text-primary" : "text-neutral-10"
-          }`}
-          key={item.title}
-          href={item.path}
-        >
-          {item.title}
-        </Link>
-      ))}
-    </>
+    <Link
+      href={path}
+      className={`text-[20px] font-medium leading-140 ${
+        isActive ? "text-primary" : "text-neutral-10"
+      }`}
+    >
+      {title}
+    </Link>
   );
 };
 
