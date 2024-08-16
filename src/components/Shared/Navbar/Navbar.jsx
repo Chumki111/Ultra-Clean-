@@ -8,6 +8,10 @@ import "react-modern-drawer/dist/index.css";
 import { FaTimes } from "react-icons/fa"; // Import close icon
 import Container from "../Container";
 import Logo from "./Logo";
+import { FiMenu } from "react-icons/fi";
+import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
+import NavLink from "./Navlink";
+import Dropdown from "./Dropdown";
 
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -39,47 +43,23 @@ const Navbar = () => {
           <Logo />
 
           {/* Hamburger menu button for mobile and tablet */}
-          <button onClick={handleDrawerToggle} className="lg:hidden text-2xl">
-            ☰
+          <button onClick={handleDrawerToggle}>
+            <FiMenu className="lg:hidden text-2xl font-bold text-primary" />
           </button>
 
           {/* Desktop nav items */}
           <div className="hidden lg:flex space-x-7 items-center">
             {navLinks?.map((item) => (
-              <Link
-                className={`text-[20px] font-medium leading-140 ${
-                  pathName === item.path ? "text-primary" : "text-neutral-10"
-                }`}
+              <NavLink
                 key={item.title}
-                href={item.path}
-              >
-                {item.title}
-              </Link>
+                path={item.path}
+                title={item.title}
+                isActive={pathName === item.path}
+              />
             ))}
 
             {/* Pages dropdown */}
-            <div className="relative">
-              <button
-                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                className="text-[20px] font-medium leading-140 text-neutral-10"
-              >
-                Pages
-              </button>
-
-              {isDropdownOpen && (
-                <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg">
-                  {pagesDropdown.map((page) => (
-                    <Link
-                      key={page.title}
-                      href={page.path}
-                      className="block px-4 py-2 text-sm text-neutral-10 hover:bg-gray-100"
-                    >
-                      {page.title}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
+            <Dropdown pages={pagesDropdown} />
           </div>
 
           {/* Login button for desktop */}
@@ -100,43 +80,18 @@ const Navbar = () => {
             <FaTimes />
           </button>
 
-          <div className="space-y-4">
+          <div className="space-y-4 flex flex-col">
             {navLinks.map((item) => (
-              <Link
+              <NavLink
                 key={item.title}
-                href={item.path}
-                className={`block text-[20px] font-medium leading-140 ${
-                  pathName === item.path ? "text-primary" : "text-neutral-10"
-                }`}
-                onClick={handleDrawerToggle} // Close drawer on click
-              >
-                {item.title}
-              </Link>
+                path={item.path}
+                title={item.title}
+                isActive={pathName === item.path}
+                onClick={handleDrawerToggle}
+              />
             ))}
 
-            <div className="relative">
-              <button
-                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                className="text-[20px] font-medium leading-140 text-neutral-10"
-              >
-                Pages
-              </button>
-
-              {isDropdownOpen && (
-                <div className="mt-2 bg-white border border-gray-200 rounded-md shadow-lg">
-                  {pagesDropdown.map((page) => (
-                    <Link
-                      key={page.title}
-                      href={page.path}
-                      className="block px-4 py-2 text-sm text-neutral-10 hover:bg-gray-100"
-                      onClick={handleDrawerToggle} // Close drawer on click
-                    >
-                      {page.title}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
+            <Dropdown pages={pagesDropdown} />
           </div>
 
           {/* Login button for mobile and tablet */}
