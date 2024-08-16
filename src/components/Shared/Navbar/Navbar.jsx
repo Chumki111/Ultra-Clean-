@@ -1,12 +1,13 @@
 "use client";
 import React, { useState } from "react";
-import Image from "next/image";
+
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
 import { FaTimes } from "react-icons/fa"; // Import close icon
 import Container from "../Container";
+import Logo from "./Logo";
 
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -35,13 +36,7 @@ const Navbar = () => {
       <Container>
         <div className="justify-between flex items-center">
           {/* logo */}
-          <Image
-            src="/images/Logo.svg"
-            alt="Logo"
-            width={198}
-            height={46}
-            className="object-contain"
-          />
+          <Logo />
 
           {/* Hamburger menu button for mobile and tablet */}
           <button onClick={handleDrawerToggle} className="lg:hidden text-2xl">
@@ -49,7 +44,7 @@ const Navbar = () => {
           </button>
 
           {/* Desktop nav items */}
-          <div className="hidden lg:flex space-x-4 items-center">
+          <div className="hidden lg:flex space-x-7 items-center">
             {navLinks?.map((item) => (
               <Link
                 className={`text-[20px] font-medium leading-140 ${
